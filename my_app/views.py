@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from my_app.models import Book
+
+
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello, world. You're at the polls page.")
+    books = Book.objects.all()
+    return render(request, 'home.html', context={'books': books})
