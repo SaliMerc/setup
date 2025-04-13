@@ -10,37 +10,27 @@
     <title>Library</title>
 </head>
 <body>
-<div class="container-fluid">
-<h2 class="text-center mt-4 mb-4">Available Books</h2>
-<table class="table table-responsive-sm table-hover table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">Publishing Date</th>
-        <th scope="col">ISBN</th>
-        <th scope="col">PAGES</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% if books %}
-  {% for book in books %}
-    <tr>
-      <td>1</td>
-      <td>{{ book.title }}</td>
-      <td>{{ book.author }}</td>
-      <td>{{ book.published_date }}</td>
-        <td>{{ book.isbn }}</td>
-      <td>{{ book.pages }}</td>
-    </tr>
-  {% endfor %}
-  {% else %}
-  <h6 class="text-center">Books not available at the moment, check later!</h6>
-  {% endif %}
-  </tbody>
-</table>
+<nav class="navbar container-fluid">
+  <div class="row">
+  <div class="col-md-8">
+    <a class="navbar-brand col-md-6" href="{% url 'home' %}">SetUp</a>
+  </div>
+    <div class=" col-md-4">
+      <ul class="nav">
+       <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+{#          {% if user.is_authenticated %}#}
+             <li class="nav-item"><a class="nav-link" href="{% url 'library' %}">Library Books</a></li>
+{#          {% else %}#}
+             <li class="nav-item"><a class="nav-link active" href="{% url 'signup' %}">SignUp</a></li>
+             <li class="nav-item"><a class="nav-link active" href="{% url 'login' %}">Login</a></li>
+{#          {% endif %}#}
+      </ul>
+      </div>
     </div>
+</nav>
+{% block content %}
+{#page content goes here#}
+{% endblock %}
 </body>
 <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
 </html>

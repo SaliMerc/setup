@@ -1,0 +1,34 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="container-fluid">
+<h2 class="text-center mt-4 mb-4">Available Books</h2>
+<table class="table table-responsive-sm table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">S/No</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publishing Date</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">PAGES</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if books %}
+  {% for book in books %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.published_date }}</td>
+        <td>{{ book.isbn }}</td>
+      <td>{{ book.pages }}</td>
+    </tr>
+  {% endfor %}
+  {% else %}
+  <h6 class="text-center">Books not available at the moment, check later!</h6>
+  {% endif %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-9">
+    <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="fname">First Name</label>
+        <input class="form-control" type="text" id="fname" name="first_name" placeholder="Enter your first name">
+         <label for="lname">Last Name</label>
+        <input class="form-control" type="text" id="lname" name="last_name" placeholder="Enter your last name">
+         <label for="email">Email Address</label>
+        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email address">
+         <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password">
+         <label for="cpass">Confirm Password</label>
+        <input class="form-control" type="password" id="cpass" name="c-password" placeholder="Confirm your password">
+    </form>
+    </div>
+    </div>
+{% endblock %}
